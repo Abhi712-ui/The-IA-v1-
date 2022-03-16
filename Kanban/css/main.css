@@ -1,0 +1,9 @@
+.kanban {
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    padding: 30px;
+    width: 750px;
+    background-color: #191B44;
+    border-radius: 5px;
+}
