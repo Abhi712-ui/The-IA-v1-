@@ -7,3 +7,38 @@
     background-color: #191B44;
     border-radius: 5px;
 }
+
+.kanban * {
+    font-family: 'Inter', sans-serif;
+}
+
+.kanban_column {
+    flex: 1;
+}
+
+.kanban_column:not(:last-child) {
+    margin-right: 30px;
+}
+
+.kanban_column_header {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: #FFFFFF;
+    user-select: none;
+}
+
+.KanbanItem {
+    padding: 10px 15px;
+    color: #191B44;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.DropZone {
+    height: 10px;
+    transition: background 0.15s, height 0.15s;
+}
+
+.DropZone--active {}
