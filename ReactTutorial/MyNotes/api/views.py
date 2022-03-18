@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Category, Task
+from .serializers import TaskSerializer, CategorySerializer
 
 # Create your views here.
 @api_view(['GET'])
@@ -44,9 +45,23 @@ def getRoutes(request):
 @api_view(['GET'])
 def getTasks(request):
     tasks = Task.objects.all()
-    return Response('TASKS')
+    taskserializer = TaskSerializer(tasks, many=True)
+    return Response(taskserializer.data)
 
 @api_view(['GET'])
 def getCategories(request):
     Categories = Category.objects.all()
-    return Response('CATEGORIES')
+    categoryserializer = CategorySerializer(Categories, many=True)
+    return Response(categoryserializer.data)
+
+@api_view(['GET'])
+def getTask(request, pk):
+    tasks = Task.objects.get(id=pk)
+    taskserializer = TaskSerializer(tasks, many=False)
+    return Response(taskserializer.data)
+
+@api_view(['GET'])
+def getCategory(request, pk):
+    Categories = Category.objects.get(id=pk)
+    categoryserializer = CategorySerializer(Categories, many=False)
+    return Response(categoryserializer.data)
